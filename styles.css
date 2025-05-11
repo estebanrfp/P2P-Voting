@@ -1,0 +1,484 @@
+ html, body {
+   height: 100%;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+   background-color: #f0f2f5;
+   color: #333;
+   line-height: 1.5;
+   overflow: hidden;
+ }
+
+ .app-wrapper {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+ }
+
+ .main-header {
+   background-color: #2c3e50;
+   color: white;
+   padding: 12px 20px;
+   text-align: center;
+   flex-shrink: 0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+
+ .main-header h1 {
+   margin: 0;
+   font-size: 1.4em;
+   font-weight: 500;
+ }
+
+ .content-area {
+   flex-grow: 1;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 15px;
+ }
+
+ .view-container {
+   width: 100%;
+   height: 100%;
+   max-width: 1200px;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+ }
+
+ .creator-container {
+   display: grid;
+   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+   grid-template-rows: auto 1fr auto;
+   gap: 20px;
+   padding: 25px;
+   max-width: 950px;
+   height: 100%;
+   box-sizing: border-box;
+ }
+
+ .creator-container h2 {
+   grid-column: 1 / -1;
+   text-align: center;
+   margin-bottom: 10px;
+ }
+
+ .creator-col-1 {
+   grid-row: 2 / 3;
+   display: flex;
+   flex-direction: column;
+   gap: 18px;
+   overflow-y: auto;
+   padding-right: 10px;
+   min-width: 0;
+ }
+
+ .creator-col-2 {
+   grid-row: 2 / 3;
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+   min-width: 0;
+ }
+
+ .creator-footer {
+   grid-column: 1 / -1;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 15px;
+   padding-top: 15px;
+   border-top: 1px solid #eee;
+ }
+
+ .form-group {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+ }
+
+ .proposal-input-group {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 8px;
+   align-items: stretch;
+ }
+
+ .proposal-input-group input[type="text"] {
+   margin-bottom: 0;
+   color: #212529;
+   background-color: #fff;
+   border: 1px solid #ced4da;
+   line-height: normal;
+   padding: 10px 12px;
+   min-width: 0;
+ }
+
+ .proposal-input-group button {
+   margin-bottom: 0;
+   padding: 10px 15px;
+ }
+
+ .proposals-interactive-list {
+   border: 1px solid #e0e0e0;
+   border-radius: 4px;
+   padding: 10px;
+   overflow-y: auto;
+   background-color: #f9f9f9;
+   flex-grow: 1;
+   min-height: 150px;
+ }
+
+ .proposal-interactive-item {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 10px;
+   align-items: center;
+   padding: 8px 10px;
+   background-color: #fff;
+   border-radius: 3px;
+   margin-bottom: 6px;
+   font-size: 0.9em;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+ }
+
+ .proposal-interactive-item span {
+   word-break: break-all;
+ }
+
+ .proposal-interactive-item button {
+   background-color: #e74c3c;
+   border-color: #e74c3c;
+   color: white;
+   padding: 4px 8px;
+   font-size: 0.8em;
+   width: auto;
+   margin-bottom: 0;
+ }
+
+ .proposal-interactive-item button:hover {
+   background-color: #c0392b;
+ }
+
+ .voting-layout {
+   display: grid;
+   grid-template-columns: 280px 1fr;
+   gap: 15px;
+   padding: 0;
+ }
+
+ .active-votings-sidebar {
+   background-color: #f8f9fa;
+   padding: 15px;
+   overflow-y: auto;
+   border-right: 1px solid #e9ecef;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .active-votings-sidebar h3 {
+   margin-top: 0;
+   margin-bottom: 12px;
+   color: #34495e;
+   border-bottom: 2px solid #3498db;
+   padding-bottom: 8px;
+   font-size: 1.1em;
+   flex-shrink: 0;
+ }
+
+ .active-votings-list-items {
+   flex-grow: 1;
+   overflow-y: auto;
+   margin-bottom: 12px;
+ }
+
+ #showCreatorViewBtn {
+   flex-shrink: 0;
+   margin-top: auto;
+   width: 100%;
+   background-color: #1abc9c;
+   border-color: #1abc9c;
+ }
+
+ #showCreatorViewBtn:hover {
+   background-color: #16a085;
+ }
+
+ .current-voting-area {
+   padding: 20px 25px;
+   overflow-y: auto;
+ }
+
+ .active-voting-item {
+   background-color: #f1f3f5;
+   padding: 8px 10px;
+   margin-bottom: 8px;
+   border-radius: 5px;
+   cursor: default;
+   transition: background-color 0.2s, border-left 0.2s;
+   border-left: 3px solid transparent;
+   display: grid;
+   grid-template-columns: 1fr auto;
+   grid-template-areas:
+     "title delete"
+     "countdown delete";
+   gap: 2px 8px;
+   align-items: center;
+ }
+
+ .active-voting-item-details {
+   grid-area: title;
+   /* This will make title span the first column of the first row */
+   /* To make it span two rows if delete button is tall, adjust parent grid-template-rows or use subgrid */
+   cursor: pointer;
+ }
+
+ .active-voting-item-details:hover {
+   opacity: 0.7;
+ }
+
+ .active-voting-item h4 {
+   /* grid-area: title; /* Handled by parent .active-voting-item-details */
+   margin: 0;
+   font-size: 0.9em;
+   font-weight: 500;
+   word-break: break-word;
+ }
+
+ .active-voting-item .countdown-small {
+   grid-area: countdown;
+   font-size: 0.75em;
+   opacity: 0.9;
+ }
+
+ .active-voting-item .delete-session-btn {
+   grid-area: delete;
+   background-color: transparent;
+   border: none;
+   color: #e74c3c;
+   font-size: 1.1em;
+   padding: 2px 5px;
+   cursor: pointer;
+   margin-left: auto;
+   align-self: center;
+ }
+
+ .active-voting-item .delete-session-btn:hover {
+   color: #c0392b;
+   background-color: #f8d7da;
+ }
+
+ .active-voting-item.selected {
+   background-color: #3498db;
+   color: white;
+   border-left-color: #2980b9;
+ }
+
+ .active-voting-item.selected h4, .active-voting-item.selected .countdown-small, .active-voting-item.selected .delete-session-btn {
+   color: white;
+ }
+
+ .active-voting-item.selected .delete-session-btn:hover {
+   background-color: #c0392b;
+ }
+
+
+ h2 {
+   color: #2c3e50;
+   text-align: center;
+   margin: 0 0 0.8em 0;
+   font-size: 1.5em;
+ }
+
+ label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: 500;
+   font-size: 0.9em;
+ }
+
+ input[type="text"], input[type="datetime-local"], button {
+   width: 100%;
+   padding: 10px 12px;
+   border-radius: 4px;
+   border: 1px solid #ced4da;
+   font-size: 0.95em;
+   box-sizing: border-box;
+   margin-bottom: 0;
+ }
+
+ button {
+   background-color: #3498db;
+   color: white;
+   cursor: pointer;
+   border-color: #3498db;
+   transition: background-color 0.2s;
+   font-weight: 500;
+ }
+
+ button:hover {
+   background-color: #2980b9;
+ }
+
+ button:disabled {
+   background-color: #adb5bd;
+   border-color: #adb5bd;
+   color: #6c757d;
+   cursor: not-allowed;
+ }
+
+ #shareLinkContainerWrapper {
+   visibility: hidden;
+ }
+
+ #shareLinkContainer {
+   margin-top: 10px;
+   padding: 12px;
+   background-color: #e9f7fd;
+   border: 1px solid #b3e0ff;
+   border-radius: 4px;
+   text-align: center;
+   font-size: 0.9em;
+ }
+
+ /* .hidden class will be toggled by JS for shareLinkContainer itself */
+ #shareLinkContainer p {
+   margin: 0 0 6px 0;
+ }
+
+ #shareLinkContainer a {
+   word-break: break-all;
+   color: #007bff;
+   font-weight: 500;
+ }
+
+ .proposal-item {
+   background-color: #ffffff;
+   padding: 15px;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   border-left: 4px solid #3498db;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+ }
+
+ .proposal-item h3 {
+   margin: 0 0 10px 0;
+   color: #343a40;
+   font-size: 1.1em;
+ }
+
+ .proposal-item .votes {
+   font-weight: 600;
+   color: #2c3e50;
+   font-size: 0.95em;
+ }
+
+ .proposal-item button {
+   width: auto;
+   font-size: 0.85em;
+   padding: 7px 10px;
+ }
+
+ .proposal-item button.voted-for {
+   background-color: #28a745;
+   border-color: #28a745;
+ }
+
+ #countdown, #winnerMessage {
+   font-size: 1.1em;
+   text-align: center;
+   padding: 12px;
+   margin-top: 15px;
+   margin-bottom: 12px;
+   border-radius: 4px;
+ }
+
+ #countdown {
+   background-color: #fff3cd;
+   border: 1px solid #ffeeba;
+   color: #856404;
+ }
+
+ #winnerMessage {
+   background-color: #d4edda;
+   border: 1px solid #c3e6cb;
+   color: #155724;
+   font-weight: 500;
+ }
+
+ .hidden {
+   display: none !important;
+ }
+
+ .status-message {
+   font-size: 0.85em;
+   margin-top: 8px;
+   text-align: center;
+   padding: 8px;
+   border-radius: 4px;
+ }
+
+ .status-message.error {
+   color: #721c24;
+   background-color: #f8d7da;
+   border: 1px solid #f5c6cb;
+ }
+
+ .status-message.success {
+   color: #155724;
+   background-color: #d4edda;
+   border: 1px solid #c3e6cb;
+ }
+
+ .status-message.info {
+   color: #004085;
+   background-color: #cce5ff;
+   border: 1px solid #b8daff;
+ }
+
+ @media (max-width: 768px) {
+   .content-area {
+     padding: 10px;
+   }
+
+   .view-container {
+     height: calc(100vh - 46px - 20px);
+     max-height: calc(100vh - 46px - 20px);
+   }
+
+   .creator-container {
+     grid-template-columns: 1fr;
+     grid-template-rows: auto auto auto 1fr auto;
+     padding: 15px;
+     gap: 12px;
+     overflow-y: auto;
+   }
+
+   .creator-col-1, .creator-col-2 {
+     grid-row: auto;
+     padding-right: 0;
+     overflow-y: visible;
+   }
+
+   .creator-footer {
+     grid-template-columns: 1fr;
+   }
+
+   .voting-layout {
+     grid-template-columns: 1fr;
+   }
+
+   .active-votings-sidebar {
+     max-height: 250px;
+     border-right: none;
+     border-bottom: 1px solid #e9ecef;
+     padding: 10px;
+   }
+
+   .current-voting-area {
+     padding: 15px;
+   }
+ }
