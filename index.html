@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Voting App - Final</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header"><h1>🗳️ P2P Voting</h1></header>
+        <main class="content-area">
+            <div id="creatorView" class="view-container creator-container hidden">
+                <h2>Create New Poll</h2>
+                <div class="creator-col-1">
+                    <div class="form-group">
+                        <label for="pollNameInput">Poll Name/Topic</label>
+                        <input type="text" id="pollNameInput" placeholder="e.g., Next team lunch spot?" />
+                    </div>
+                    <div class="form-group">
+                        <label for="newProposalInput">Add Proposal Option</label>
+                        <div class="proposal-input-group">
+                            <input type="text" id="newProposalInput" placeholder="Enter proposal title" />
+                            <button id="addProposalBtn">Add</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="flex-grow: 1; display:flex; flex-direction:column;">
+                        <label>Current Proposals</label>
+                        <div class="proposals-interactive-list" id="proposalsInteractiveList">
+                            <p style="text-align:center; color:#6c757d; margin-top:10px;">No proposals added yet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="creator-col-2">
+                    <div class="form-group">
+                        <label for="endTimeInputCreator">End Date and Time</label>
+                        <input type="datetime-local" id="endTimeInputCreator" />
+                    </div>
+                    <div class="form-group" id="shareLinkContainerWrapper" style="margin-top: auto;">
+                        <p id="creatorStatus" class="status-message"></p>
+                        <div id="shareLinkContainer" class="hidden">
+                            <p>Poll created! Share this link:</p>
+                            <a href="#" id="shareLink" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="creator-footer">
+                    <button id="createPollBtn">Create Poll & Get Link</button>
+                    <button id="showVotingViewBtn" style="background-color: #2ecc71; border-color:#2ecc71;">View Active Polls</button>
+                </div>
+            </div>
+
+            <div id="votingView" class="view-container voting-layout">
+                <aside class="active-votings-sidebar">
+                    <h3>Active Polls</h3>
+                    <div id="activeVotingsListItems" class="active-votings-list-items"></div>
+                    <button id="showCreatorViewBtn">Create New Poll</button>
+                </aside>
+                <section class="current-voting-area">
+                    <h2 id="votingSessionTitle">Select a Poll</h2>
+                    <div id="countdown"></div>
+                    <div id="proposalsList"></div>
+                    <div id="winnerMessage" class="hidden"></div>
+                    <p id="votingStatus" class="status-message"></p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
