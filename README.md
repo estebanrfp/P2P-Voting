@@ -1,6 +1,6 @@
 # P2P Real-time Voting App (P2P-Voting)
 
-![P2P Voting App Screenshot](https://i.imgur.com/ERP8CAk.png) <!-- Replace placeholder.png with an actual screenshot -->
+![dVoting App Screenshot](https://i.imgur.com/ERP8CAk.png) <!-- Replace placeholder.png with an actual screenshot -->
 
 This is a minimalist, responsive, real-time peer-to-peer (P2P) voting application built entirely in a single HTML file, showcasing the capabilities of [gdb-p2p](https://github.com/estebanrfp/gdb), a minimalist graph database with P2P support.
 
@@ -134,7 +134,7 @@ That's it! No build steps or complex dependencies are needed for this basic vers
 
 This example project is for demonstration purposes. If based on a specific repository, refer to its license. Otherwise, consider it under a permissive license like MIT if you are distributing it.
 
-[P2P-Voting Demo](https://estebanrfp.github.io/dVoting/) Powered by [GraphDB (GDB)](https://github.com/estebanrfp/gdb)
+[dVoting Demo](https://estebanrfp.github.io/dVoting/) Powered by [GraphDB (GDB)](https://github.com/estebanrfp/gdb)
 
 -------------
 
