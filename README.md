@@ -1,4 +1,4 @@
-# P2P Real-time Voting App (P2P-Voting)
+# P2P Real-time Voting App (dVoting)
 
 ![dVoting App Screenshot](https://i.imgur.com/ERP8CAk.png) <!-- Replace placeholder.png with an actual screenshot -->
 
